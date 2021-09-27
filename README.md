@@ -1,7 +1,7 @@
 ## Exemple Spring Boot Test avec JUnit et Mockito
 Ce projet montrera comment implémenter un exemple des tests unitaires Spring Boot, JUnit et Mockito.
 Spring Boot fournit une annotation `@SpringBootTest` qui permet de charger le contexte Spring lors de l’exécution des tests.
-Ce projet se concentre sur le test de la couche `service`  qui se compose la logique métier de traitement.
+Ce projet se concentre sur le test de la couche `service`  qui se compose la logique métier du traitement.
 Nous écrirons des cas de test pour les opérations de base de données telles que CRUD (Create, Read, Update et Delete) d'une entité - `User`.
 
 ### Introduction
@@ -26,7 +26,7 @@ les résultats/sorties de test sont également séparés de la sortie du program
 Vous pouvez choisir de créer simplement les classes de test dans le même dossier 
 que le reste de votre code, mais il est recommandé d'avoir un répertoire séparé pour les tests. 
 Une autre chose à noter est les conventions de nommage. Si nous souhaitons tester complètement 
-notre code, chaque classe doit avoir une classe de test correspondante nommée - `classname]Test`.
+notre code, chaque classe doit avoir une classe de test correspondante nommée - `classnameTest`.
 
 ### Prérequis
 ---
@@ -40,9 +40,10 @@ Pour ce projet, vous auriez besoin des spécifications suivantes :<br/>
 - Tout IDE prenant en charge Java et Spring Boot (Spring Tool Suite (STS), IntelliJ, VSC, NetBeans, etc.)
 - SGBD NoSQL MongoDB
 
-### Architecture du test
-Cette image présente l'architecture simple de cet exemple.
-
+### Architecture de test
+---
+Cette image présente l'architecture simple de cet exemple.<br/><br/>
+![Archi_JUnitTest](https://user-images.githubusercontent.com/75081354/134864726-327320ec-7168-4fe5-9753-0420112cd1c0.jpg)
 
 ### Dependances Maven de tests unitaires
 ---
@@ -53,7 +54,8 @@ La prise en charge des tests est fournie par deux modules : `spring-boot-test` c
 La plupart des développeurs utiliseront simplement le "Starter" `spring-boot-starter-test` qui importe 
 les deux modules de test Spring Boot ainsi que **JUnit, AssertJ, Hamcrest** et un certain nombre d'autres bibliothèques utiles.
 
-#### Dépendances de la portée du test
+### Dépendances de la portée du test
+---
 Si vous utilisez le **'Starter'** `spring-boot-starter-test` (dans le `test` `scope`), vous trouverez les bibliothèques fournies suivantes :
 * **JUnit** — La norme de facto pour les tests unitaires des applications Java.
 * **Spring Test & Spring Boot Test** - Prise en charge des utilitaires et des tests d'intégration pour les applications Spring Boot.
@@ -63,10 +65,10 @@ Si vous utilisez le **'Starter'** `spring-boot-starter-test` (dans le `test` `sc
 * **JSONassert** — Une bibliothèque d'assertions pour JSON.
 * **JsonPath** — XPath pour JSON.
 
-### Annotations Test utiliséss
+### Annotations de Test utiliséss
 ---
 * `@SpringBootTest` est une annotation fournie par Spring Boot. Elle permet lors de l’exécution des tests d’initialiser le contexte Spring. Les beans de notre application peuvent alors être utilisés.
-* `@MockBean` annotation qui peut être utilisée pour ajouter des maquettes à un Spring ApplicationContext. Peut être utilisé comme annotation au niveau de la classe ou sur des champs dans l'une @Configuration ou l' autre des classes, ou des classes de test qui sont @RunWith de SpringRunner.
+* `@MockBean` annotation qui peut être utilisée pour ajouter des maquettes à un Spring *ApplicationContext*. Peut être utilisé comme annotation au niveau de la classe ou sur des champs dans l'une *@Configuration* ou l' autre des classes, ou des classes de test qui sont *@RunWith* de *SpringRunner*.
 * `@Test` afin que JUnit puisse les récupérer et les mettre dans une liste de tous les tests à exécuter.
 
 ### Exécuter les tests
@@ -78,4 +80,5 @@ Pour exécuter le test, il ne vous reste plus qu’à faire un clic droit sur la
 - **Test unitaire saveUserTest** - test sa capacité à conserver les enregistrements.
 - **Test unitaire deleteUserTest** - supprimer un enregistrement dans la base de données.
 
-La vue JUnit au sein de STS devrait ressembler à ça :<br/>
+La vue JUnit au sein de STS devrait ressembler à ça :<br/><br/>
+![Resultat_test](https://user-images.githubusercontent.com/75081354/134864804-06e13876-c218-40b9-8983-924f74a1687a.PNG)
